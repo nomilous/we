@@ -1,7 +1,6 @@
-we is a gem
-===========
-
 ### we has only just begun...
+
+
 
 We is about collaboration in:
 
