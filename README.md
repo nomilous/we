@@ -1,7 +1,9 @@
 we is a gem
 ===========
 
-### we is about collaboration in:
+### we has only just begun...
+
+We is about collaboration in:
 
 * design 
 * implementation
@@ -18,8 +20,4 @@ describe We do
 end
 
 </pre>
-
-
-we has only just begun...
--------------------------
 
