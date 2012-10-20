@@ -21,6 +21,8 @@ def to( *args, &block )
 
 end
 
+def linking; end
+
 def link_spec( *args, &block )
 
   We::link_spec( args, &block )

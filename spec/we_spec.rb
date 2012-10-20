@@ -1,4 +1,4 @@
-we :follow_links
+we enable: linking
 
 describe We do
 
@@ -34,6 +34,20 @@ describe We do
 
   end
 
+  it 'only links subcomponent specs when linking is enabled' do
+
+    we disable: linking
+
+    pending "getting some rest"
+
+  end
+
+  it 'warns when linking to a spec that is not declared as lined' do
+
+    pending "getting some rest"
+
+  end
+
   it 'can link subcomponet specs' do
 
     link_spec 'we/base'
@@ -44,10 +58,4 @@ describe We do
 
   end
 
-  it 'only follows links when :follow_links is declared' do
-
-    pending "getting some rest"
-
-  end
-  
 end
