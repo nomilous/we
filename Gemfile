@@ -8,7 +8,8 @@ group :development, :test do
   gem 'guard'
   gem 'guard-rspec'
   gem 'rb-fsevent'
+  gem 'awesome_print'
 end
 
-gem 'awesome_print'
+
 

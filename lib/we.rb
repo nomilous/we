@@ -1,6 +1,9 @@
 require 'we/base'
+require 'we/verb/base'
 
 def we( *args, &block )
+
+  We::process( *args, &block )
 
   block.call if block
 
@@ -18,8 +21,8 @@ def to( *args, &block )
 
 end
 
-def link( *args, &block )
+def link_spec( *args, &block )
 
-  We::link( args, &block )
+  We::link_spec( args, &block )
 
 end

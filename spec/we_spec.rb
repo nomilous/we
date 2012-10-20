@@ -1,12 +1,12 @@
 describe We do
 
-  it 'declares actor and requirement and components' do
+  it 'supports story declarations' do
 
     as 'product owner'
 
-    to 'define requirements' do
+    to 'fully define requirements' do
 
-      we need: 'requirement declarations'
+      we need: 'story declarations'
 
       we need: 'more than one of them'
 
@@ -14,9 +14,27 @@ describe We do
 
   end
 
+  it 'maintains a context' do
+
+    We::context.should be_a( Hash )
+
+  end
+
+  it 'processes the arguments' do
+
+    We.should_receive(
+
+      :process ).with( { :need => 'things' }
+
+    )
+
+    we need: 'things'
+
+  end
+
   it 'can link subcomponet specs' do
 
-    link 'we/base'
+    link_spec 'we/base'
 
     We::instance_variable_get(
 
