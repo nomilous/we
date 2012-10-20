@@ -9,3 +9,6 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'rb-fsevent'
 end
+
+gem 'awesome_print'
+
