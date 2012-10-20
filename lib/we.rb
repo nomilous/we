@@ -1,4 +1,4 @@
-module We; end
+require 'we/base'
 
 def we( *args, &block )
 
@@ -15,5 +15,11 @@ end
 def to( *args, &block )
 
   block.call if block
+
+end
+
+def link( *args, &block )
+
+  We::link( args, &block )
 
 end
