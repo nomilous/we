@@ -1,8 +1,6 @@
-### we has only just begun...
+### [we has only just begun...](https://github.com/nomilous/we/tree/master/.metadata)
 
-
-
-We is about collaboration in:
+<b>We is about collaboration in:</b>
 
 * design 
 * implementation
