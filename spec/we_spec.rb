@@ -1,3 +1,5 @@
+we :follow_links
+
 describe We do
 
   it 'supports story declarations' do
@@ -39,6 +41,12 @@ describe We do
     We::instance_variable_get(
 
       :@links)['we/base'].should == 'we/base_spec.rb'
+
+  end
+
+  it 'only follows links when :follow_links is declared' do
+
+    pending "getting some rest"
 
   end
   
