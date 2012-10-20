@@ -7,3 +7,7 @@ end
 def as( *args, &block )
 
 end
+
+def to( *args, &block )
+
+end

@@ -1,16 +1,14 @@
 describe We do
 
-  it 'declares actor and need and reason' do
+  it 'declares actor and requirement and components' do
 
     as 'product owner'
 
-    we need: 'requirement declarations'
+    to 'define requirements' do
 
-    we need: 'more than one of them'
+      we need: 'requirement declarations'
 
-    we need: 'a way to say why' do
-
-      to 'help the developers not get it wrong'
+      we need: 'more than one of them'
 
     end
 
