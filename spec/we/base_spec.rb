@@ -42,4 +42,10 @@ describe We do
 
   end
 
+  it 'maintains a list of linked spec edges' do
+
+    pending
+
+  end
+
 end

@@ -46,6 +46,8 @@ module We
 
     end
 
+    def set_node( args ); end
+
     def process( *args, &block )
 
       args.each do |arg|
@@ -73,6 +75,8 @@ module We
         end
 
       end
+
+      We::set_node( *args )
 
       block.call if block
 
