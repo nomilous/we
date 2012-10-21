@@ -28,7 +28,7 @@ module We
 
       def custom_call( symbol, &block )
 
-        if @verb_action[symbol].nil?
+        if @verb_action.nil? or @verb_action[symbol].nil?
 
           We::warn "Undefined custom verb :#{symbol}"
 
