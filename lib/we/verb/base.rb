@@ -28,7 +28,13 @@ module We
 
       def custom_call( symbol, &block )
 
-        return if @verb_action[symbol].nil?
+        if @verb_action[symbol].nil?
+
+          We::warn "Undefined custom verb :#{symbol}"
+
+          return
+
+        end
 
         parameter = @verb_param[symbol]
 
