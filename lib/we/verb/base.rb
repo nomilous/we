@@ -64,6 +64,7 @@ module We
           end
 
           We::context[:linked_file] = spec_file
+          We::enter_link( args, &block )
 
         end
 

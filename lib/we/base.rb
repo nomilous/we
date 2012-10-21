@@ -46,6 +46,7 @@ module We
 
     end
 
+    def enter_link( args, &block ); end
     def enter_node( args, &block ); end
     def exit_node( args, &block ); end
 
