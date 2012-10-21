@@ -46,7 +46,7 @@ module We
 
     end
 
-    def enter_link( args, &block ); end
+    def enter_fragment( args, &block ); end
     def enter_node( args, &block ); end
     def exit_node( args, &block ); end
 
@@ -96,7 +96,9 @@ module We
 
     end
 
-    def link_spec( args, &block )
+    def link_fragment( args, &block )
+
+      puts "                        LINK FRAGMENT"
 
       @links = {} if @links.nil?
 
@@ -110,11 +112,11 @@ module We
 
       end
 
-      unless /^\s{0,}we\s{1,}\:link\s{0,}(;|$)/.match( 
+      unless /^\s{0,}we\s{1,}\:fragment\s{0,}do\s{0,}(;|$)/.match( 
 
           File.read( "spec/#{base_name}_spec.rb" ) )
 
-          warn "Unspecified 'we :link' in spec/#{base_name}_spec.rb"
+          warn "Unspecified 'we :fragment do' block in spec/#{base_name}_spec.rb"
 
       end
 

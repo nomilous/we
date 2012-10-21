@@ -8,7 +8,7 @@ module We
 
         case symbol
 
-        when :link, :enable, :disable
+        when :fragment, :enable, :disable
 
           return true
 
@@ -28,9 +28,21 @@ module We
 
       end
 
-      def link( args, &block )
+      def fragment( args, &block )
 
-        if args[0] == :link
+        puts "                      INTO NEW FRAGMENT"
+
+        #
+        # upon entering a new fragment
+        #
+        # we :fragment do
+        # 
+        #   ...
+        # 
+        # end
+        #
+
+        if args[0] == :fragment
 
           spec_file = ""
 
@@ -63,8 +75,8 @@ module We
 
           end
 
-          We::context[:linked_file] = spec_file
-          We::enter_link( args, &block )
+          We::context[:fragment] = spec_file
+          We::enter_fragment( args, &block )
 
         end
 

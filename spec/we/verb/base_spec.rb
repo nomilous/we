@@ -1,14 +1,18 @@
-we :link
+we :fragment do
 
-describe 'We::verbs' do
+  describe 'We::verbs' do
 
-  context 'are predefined -' do
+    context 'are predefined -' do
 
-    context ':link' do
+      context ':fragment' do
 
-      it 'tracks the linking of spec files' do
+        it 'tracks the linking of spec files' do
 
-        We::context[:linked_file].should == "we/verb/base"
+          STDERR << We::context.inspect
+
+          We::context[:fragment].should == "we/verb/base"
+
+        end
 
       end
 

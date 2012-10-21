@@ -1,50 +1,52 @@
-we :link
+we :fragment do
 
-describe We do
+  describe We do
 
-  it 'can link subcomponet specs' do
+    it 'can link subcomponet specs' do
 
-    we enable: linking
+      we enable: linking
 
-    link_spec 'we/verb/base'
+      link_fragment 'we/verb/base'
 
-    We::instance_variable_get(
+      We::instance_variable_get(
 
-      :@links)['we/verb/base'].should == 'we/verb/base_spec.rb'
+        :@links)['we/verb/base'].should == 'we/verb/base_spec.rb'
 
-  end
+    end
 
-  it 'only links subcomponent specs when linking is enabled' do
+    it 'only links subcomponent specs when linking is enabled' do
 
-    we disable: linking
+      we disable: linking
 
-    We::instance_variable_set(:@links, {})
+      We::instance_variable_set(:@links, {})
 
-    link_spec 'we/verb/base'
+      link_fragment 'we/verb/base'
 
-    We::instance_variable_get(
+      We::instance_variable_get(
 
-      :@links)['we/verb/base'].should == nil
+        :@links)['we/verb/base'].should == nil
 
-  end
+    end
 
-  it 'warns when linking to a spec that is not declared as lined' do
+    it 'warns when linking to a spec that is not declared as lined' do
 
-    we enable: linking
+      we enable: linking
 
-    We::should_receive( :warn ).with( 
+      We::should_receive( :warn ).with( 
 
-      "Unspecified 'we :link' in spec/we/unlinked_spec.rb" 
+        "Unspecified 'we :fragment do' block in spec/we/unlinked_spec.rb" 
 
-    )
+      )
 
-    link_spec 'we/unlinked'
+      link_fragment 'we/unlinked'
 
-  end
+    end
 
-  it 'maintains a list of linked spec edges' do
+    it 'maintains a list of linked spec edges' do
 
-    pending
+      pending
+
+    end
 
   end
 

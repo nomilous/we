@@ -32,11 +32,11 @@ describe We do
 
   end
 
-  it 'can link specs' do
+  it 'can link spec fragments' do
 
-    We::should_receive( :link_spec )
+    We::should_receive( :link_fragment )
 
-    link_spec 'we/base'
+    link_fragment 'we/base'
 
   end
 

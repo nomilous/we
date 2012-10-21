@@ -25,8 +25,8 @@ def linking;
 
 end
 
-def link_spec( *args, &block )
+def link_fragment( *args, &block )
 
-  We::link_spec( args, &block )
+  We::link_fragment( args, &block )
 
 end
