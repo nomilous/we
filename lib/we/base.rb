@@ -64,7 +64,7 @@ module We
 
             else
 
-              We::Verb::custom_call( key, &block )
+              We::Verb::custom_call( key, value, &block )
               
             end
 
@@ -78,7 +78,7 @@ module We
 
           else 
 
-            We::Verb::custom_call( arg, &block )
+            We::Verb::custom_call( arg, nil, &block )
 
           end
 

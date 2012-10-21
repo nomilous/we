@@ -7,7 +7,6 @@ module We
       def register( args, &block )
 
         @verb_action = {} unless @verb_action
-        @verb_param = {} unless @verb_param
 
         if args.is_a? Symbol
 
@@ -18,7 +17,6 @@ module We
           args.each_key do |key|
 
             @verb_action[key] = block
-            @verb_param[key] = args[key]
 
           end
           
@@ -26,7 +24,7 @@ module We
 
       end
 
-      def custom_call( symbol, &block )
+      def custom_call( symbol, parameter, &block )
 
         if @verb_action.nil? or @verb_action[symbol].nil?
 
@@ -36,9 +34,7 @@ module We
 
         end
 
-        parameter = @verb_param[symbol]
-
-        @verb_action[symbol].yield( parameter, We::config, We::state, block )
+        @verb_action[symbol].yield( parameter, block )
 
       end
 
@@ -112,6 +108,7 @@ module We
           end
 
           We::context[:fragment] = spec_file
+          custom_call( :fragment, spec_file, &block )
           We::enter_fragment( args, &block )
 
         end

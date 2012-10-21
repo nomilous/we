@@ -26,7 +26,7 @@ we :fragment do
 
       verb_handler.should_receive( 
 
-        :yield ).with( :parameter, anything, anything, anything )
+        :yield ).with( anything, anything )
 
       we :verb do; end
 
