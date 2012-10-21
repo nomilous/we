@@ -24,7 +24,7 @@ we :fragment do
 
       verb_handler.should be_a( Proc )
 
-      verb_handler.should_receive( :call )
+      verb_handler.should_receive( :yield )
 
       we :verb do; end
 

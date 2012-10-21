@@ -4,11 +4,23 @@ module We
 
     class << self
 
-      def register( symbol, &block )
+      def register( args, &block )
 
         @verb_action = {} unless @verb_action
 
-        @verb_action[symbol] = block
+        if args.is_a? Symbol
+
+          @verb_action[args] = block
+
+        elsif args.is_a? Hash
+
+          args.each_key do |key|
+
+            @verb_action[key] = block
+
+          end
+          
+        end
 
       end
 
@@ -16,7 +28,7 @@ module We
 
         return if @verb_action[symbol].nil?
 
-        @verb_action[symbol].call
+        @verb_action[symbol].yield( We::settings, We::state )
 
       end
 
