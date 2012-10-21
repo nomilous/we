@@ -8,11 +8,23 @@ module We
 
         case symbol
 
-        when :link 
+        when :link, :enable, :disable
 
           return true
 
         end
+
+      end
+
+      def enable( args, &block )
+
+        We::set( args, :enabled )
+
+      end
+
+      def disable( args, &block )
+
+        We::set( args, :disabled )
 
       end
 
@@ -40,7 +52,7 @@ module We
                 spec_file = call.split(/_spec.rb/)[0].split("/spec/")[1]
 
               rescue; 
-                
+
                 # spec_file comes up empty if the assumptions were wrong
 
               end
@@ -51,7 +63,7 @@ module We
 
           end
 
-          We::context[:current_file] = spec_file
+          We::context[:linked_file] = spec_file
 
         end
 

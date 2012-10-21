@@ -2,27 +2,67 @@ module We
 
   class << self
 
+    def settings
+
+      @settings = {
+
+        linking: :disabled
+
+      } unless @settings
+
+      @settings
+
+    end
+
+    def set( settable, state )
+
+      unless settable.is_a? Array
+
+        return We::settings[settable] = state
+
+      end
+
+      settable.each do |setting|
+
+        We::settings[setting] = state
+
+      end
+
+    end
+
     def context
+
+      @context = {} unless @context
 
       @context
 
     end
 
+    def state
+
+      @state = {} unless @state
+
+      @state
+
+    end
+
     def process( *args, &block )
-
-      #
-      # a context is maintained throughout the spec run
-      #
-
-      @context = {} unless @context
 
       args.each do |arg|
 
-        if arg.is_a? Symbol
+        if arg.is_a? Hash
 
-          #
-          # we has a predefined set of verbs
-          # 
+          arg.each do |key, value|
+
+            if We::Verb::is_this? key
+
+              We::Verb::send( key, value, &block )
+
+            end
+
+          end
+
+        elsif arg.is_a? Symbol
 
           if We::Verb::is_this? arg
 
@@ -34,19 +74,45 @@ module We
 
       end
 
+      block.call if block
+
+    end
+
+    def warn( msg )
+
+      #
+      # TODO: colours
+      #
+
+      puts msg
+
     end
 
     def link_spec( args, &block )
 
       @links = {} if @links.nil?
 
+      return unless We::settings[:linking] == :enabled
+
+      base_name = ""
+
       args.each do |arg|
 
-        @links[arg] = "#{arg}_spec.rb"
-
-        require @links[arg]
+        base_name = "#{arg}" if arg.is_a? String
 
       end
+
+      unless /^\s{0,}we\s{1,}\:link\s{0,}(;|$)/.match( 
+
+          File.read( "spec/#{base_name}_spec.rb" ) )
+
+          warn "Unspecified 'we :link' in spec/#{base_name}_spec.rb"
+
+      end
+
+      @links[base_name] = "#{base_name}_spec.rb"
+
+      require @links[base_name]
 
     end
 

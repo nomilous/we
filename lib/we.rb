@@ -5,8 +5,6 @@ def we( *args, &block )
 
   We::process( *args, &block )
 
-  block.call if block
-
 end
 
 def as( *args, &block )
@@ -21,7 +19,11 @@ def to( *args, &block )
 
 end
 
-def linking; end
+def linking; 
+
+  :linking
+
+end
 
 def link_spec( *args, &block )
 

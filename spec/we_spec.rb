@@ -1,5 +1,3 @@
-we enable: linking
-
 describe We do
 
   it 'supports story declarations' do
@@ -34,27 +32,11 @@ describe We do
 
   end
 
-  it 'only links subcomponent specs when linking is enabled' do
+  it 'can link specs' do
 
-    we disable: linking
-
-    pending "getting some rest"
-
-  end
-
-  it 'warns when linking to a spec that is not declared as lined' do
-
-    pending "getting some rest"
-
-  end
-
-  it 'can link subcomponet specs' do
+    We::should_receive( :link_spec )
 
     link_spec 'we/base'
-
-    We::instance_variable_get(
-
-      :@links)['we/base'].should == 'we/base_spec.rb'
 
   end
 

@@ -6,9 +6,9 @@ describe 'We::verbs' do
 
     context ':link' do
 
-      it 'tracks the currently running spec file' do
+      it 'tracks the linking of spec files' do
 
-        We::context[:current_file].should == "we/verb/base"
+        We::context[:linked_file].should == "we/verb/base"
 
       end
 
