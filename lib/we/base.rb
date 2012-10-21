@@ -46,7 +46,8 @@ module We
 
     end
 
-    def set_node( args ); end
+    def enter_node( args, &block ); end
+    def exit_node( args, &block ); end
 
     def process( *args, &block )
 
@@ -76,9 +77,11 @@ module We
 
       end
 
-      We::set_node( *args )
+      We::enter_node( *args, &block )
 
       block.call if block
+
+      We::exit_node( *args, &block )
 
     end
 
