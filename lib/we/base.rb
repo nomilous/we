@@ -61,7 +61,7 @@ module We
             if We::Verb::is_this? key
 
               We::Verb::send( key, value, &block )
-
+              
             end
 
           end
@@ -71,6 +71,10 @@ module We
           if We::Verb::is_this? arg
 
             We::Verb::send( arg, args, &block )
+
+          else 
+
+            We::Verb::custom_call( arg, &block )
 
           end
 
@@ -97,8 +101,6 @@ module We
     end
 
     def link_fragment( args, &block )
-
-      puts "                        LINK FRAGMENT"
 
       @links = {} if @links.nil?
 

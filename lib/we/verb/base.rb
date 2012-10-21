@@ -4,6 +4,22 @@ module We
 
     class << self
 
+      def register( symbol, &block )
+
+        @verb_action = {} unless @verb_action
+
+        @verb_action[symbol] = block
+
+      end
+
+      def custom_call( symbol, &block )
+
+        return if @verb_action[symbol].nil?
+
+        @verb_action[symbol].call
+
+      end
+
       def is_this?( symbol )
 
         case symbol
@@ -29,8 +45,6 @@ module We
       end
 
       def fragment( args, &block )
-
-        puts "                      INTO NEW FRAGMENT"
 
         #
         # upon entering a new fragment
