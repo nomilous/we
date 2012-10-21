@@ -7,6 +7,7 @@ module We
       def register( args, &block )
 
         @verb_action = {} unless @verb_action
+        @verb_param = {} unless @verb_param
 
         if args.is_a? Symbol
 
@@ -17,6 +18,7 @@ module We
           args.each_key do |key|
 
             @verb_action[key] = block
+            @verb_param[key] = args[key]
 
           end
           
@@ -28,7 +30,9 @@ module We
 
         return if @verb_action[symbol].nil?
 
-        @verb_action[symbol].yield( We::settings, We::state )
+        parameter = @verb_param[symbol]
+
+        @verb_action[symbol].yield( parameter, We::config, We::state )
 
       end
 

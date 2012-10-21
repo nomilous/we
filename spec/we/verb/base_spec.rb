@@ -18,13 +18,13 @@ we :fragment do
 
     it 'are registerable' do
 
-      We::Verb::register( :verb ) do; end
+      We::Verb::register( verb: :parameter ) do; end
 
       verb_handler = We::Verb::instance_variable_get( :@verb_action )[:verb]
 
       verb_handler.should be_a( Proc )
 
-      verb_handler.should_receive( :yield )
+      verb_handler.should_receive( :yield ).with( :parameter, anything, anything )
 
       we :verb do; end
 

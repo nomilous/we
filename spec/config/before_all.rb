@@ -1,4 +1,4 @@
 require 'we'
 
 We::context.clear
-We::settings.clear
+We::config.clear

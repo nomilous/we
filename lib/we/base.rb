@@ -2,15 +2,15 @@ module We
 
   class << self
 
-    def settings
+    def config
 
-      @settings = {
+      @config = {
 
         linking: :disabled
 
-      } unless @settings
+      } unless @config
 
-      @settings
+      @config
 
     end
 
@@ -18,13 +18,13 @@ module We
 
       unless settable.is_a? Array
 
-        return We::settings[settable] = state
+        return We::config[settable] = state
 
       end
 
       settable.each do |setting|
 
-        We::settings[setting] = state
+        We::config[setting] = state
 
       end
 
@@ -104,7 +104,7 @@ module We
 
       @links = {} if @links.nil?
 
-      return unless We::settings[:linking] == :enabled
+      return unless We::config[:linking] == :enabled
 
       base_name = ""
 
