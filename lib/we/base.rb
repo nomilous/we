@@ -61,6 +61,10 @@ module We
             if We::Verb::is_this? key
 
               We::Verb::send( key, value, &block )
+
+            else
+
+              We::Verb::custom_call( key, &block )
               
             end
 

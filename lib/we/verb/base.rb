@@ -32,7 +32,7 @@ module We
 
         parameter = @verb_param[symbol]
 
-        @verb_action[symbol].yield( parameter, We::config, We::state )
+        @verb_action[symbol].yield( parameter, We::config, We::state, block )
 
       end
 

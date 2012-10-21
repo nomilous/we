@@ -24,7 +24,9 @@ we :fragment do
 
       verb_handler.should be_a( Proc )
 
-      verb_handler.should_receive( :yield ).with( :parameter, anything, anything )
+      verb_handler.should_receive( 
+
+        :yield ).with( :parameter, anything, anything, anything )
 
       we :verb do; end
 
