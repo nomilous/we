@@ -16,7 +16,7 @@
                                              EXPORTING
                                                   MINERAL = X
 
-                                                      - sap
+                                                     - sap
 
 
 
@@ -28,7 +28,7 @@
 
                                          we need: 'more minerals'
 
-                                                      - starcraft
+                                                   - starcraft
 
 
 
