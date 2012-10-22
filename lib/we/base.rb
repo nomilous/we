@@ -88,7 +88,7 @@ module We
       # TODO: colours
       #
 
-      puts msg
+      puts msg unless We::config[:warnings] == :disabled
 
     end
 
