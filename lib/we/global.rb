@@ -22,6 +22,8 @@ module We
 
         We::global[:document] = {} unless We::global[:document]
         We::global[:document][:title] = args[:document]
+        We::global[:document][:depth] = 0
+        We::global[:document][:current_depth] = 0
         We::global[:document].merge!( args )
         We::global[:document].delete :document # duplicate info
         We::enter_fragment( args, &block )

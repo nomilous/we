@@ -78,7 +78,21 @@ module We
 
       We::enter_node( *args, &block )
 
+      begin
+        We::global[:document][:depth] += 1
+        We::global[:document][:current_depth] += 1
+        ap We::global
+      rescue Exception => e; 
+
+        ap e
+
+      end
+
       block.call if block
+
+      begin
+        We::global[:document][:current_depth] -= 1
+      rescue; end
 
       We::exit_node( *args, &block )
 

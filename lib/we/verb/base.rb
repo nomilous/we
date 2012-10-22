@@ -73,7 +73,6 @@ module We
       def document( args, &block )
 
         We::Global::document( args, &block )
-        We::enter_fragment( args, &block )
 
       end
 
@@ -123,9 +122,6 @@ module We
             end
 
           end
-
-          puts 'LINK '
-          ap We::local
 
           We::local[:fragment] = spec_file
           custom_call( :fragment, spec_file, &block )
