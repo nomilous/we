@@ -28,6 +28,14 @@ module We
 
         if @verb_action.nil? or @verb_action[symbol].nil?
 
+          unless parameter.nil?
+
+            We::warn "Undefined custom_call = :#{symbol}"
+
+            return
+
+          end
+
           We::warn "Undefined custom_call = :#{symbol}, parameter = '#{parameter[symbol]}'"
 
           return
@@ -81,7 +89,9 @@ module We
         # end
         #
 
-        if args[0] == :fragment
+        ap args
+
+        if args == :fragment
 
           spec_file = ""
 
@@ -113,6 +123,9 @@ module We
             end
 
           end
+
+          puts 'LINK '
+          ap We::local
 
           We::local[:fragment] = spec_file
           custom_call( :fragment, spec_file, &block )

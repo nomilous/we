@@ -18,6 +18,8 @@ module We
 
       def document( args, &block )
 
+        we need: 'to do the same with :fragment'
+
         We::global[:document] = {} unless We::global[:document]
         We::global[:document][:title] = args[:document]
         We::global[:document].merge!( args )

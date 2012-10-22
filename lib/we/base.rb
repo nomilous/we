@@ -40,6 +40,8 @@ module We
 
     def process( *args, &block )
 
+      ap args
+
       args.each do |arg|
 
         if arg.is_a? Hash
@@ -117,6 +119,8 @@ module We
       @links[base_name] = "#{base_name}_spec.rb"
 
       require @links[base_name]
+
+      require "#{base_name}_spec.rb"
 
     end
 
