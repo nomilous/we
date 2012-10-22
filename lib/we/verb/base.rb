@@ -28,7 +28,7 @@ module We
 
         if @verb_action.nil? or @verb_action[symbol].nil?
 
-          We::warn "Undefined custom verb :#{symbol}"
+          We::warn "Undefined custom_call = :#{symbol}, parameter = '#{parameter[symbol]}'"
 
           return
 
@@ -42,7 +42,7 @@ module We
 
         case symbol
 
-        when :fragment, :enable, :disable
+        when :fragment, :enable, :disable, :document
 
           return true
 
@@ -59,6 +59,13 @@ module We
       def disable( args, &block )
 
         We::set( args, :disabled )
+
+      end
+
+      def document( args, &block )
+
+        We::Global::document( args, &block )
+        We::enter_fragment( args, &block )
 
       end
 
@@ -107,7 +114,7 @@ module We
 
           end
 
-          We::context[:fragment] = spec_file
+          We::local[:fragment] = spec_file
           custom_call( :fragment, spec_file, &block )
           We::enter_fragment( args, &block )
 

@@ -1,22 +1,14 @@
 describe We do
 
-  it 'supports story declarations' do
+  it 'maintains a global context' do
 
-    as 'product owner'
-
-    to 'fully define requirements' do
-
-      we need: 'story declarations'
-
-      we need: 'more than one of them'
-
-    end
+    We::global.should be_a( Hash )
 
   end
 
-  it 'maintains a context' do
+  it 'maintains a local context' do
 
-    We::context.should be_a( Hash )
+    We::local.should be_a( Hash )
 
   end
 
@@ -32,11 +24,19 @@ describe We do
 
   end
 
-  it 'can link spec fragments' do
+  it 'generates events' do
+
+    pending ':noun, :verb'
+
+  end
+
+  it 'can link fragments' do
+
+    we need: 'to config link mech'
 
     We::should_receive( :link_fragment )
 
-    link_fragment 'we/base'
+    link_fragment 'we/base' # , :file | :uri  |  :...
 
   end
 

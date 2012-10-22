@@ -1,4 +1,4 @@
 require 'we'
 
-We::context.clear
+We::local.clear
 We::config.clear

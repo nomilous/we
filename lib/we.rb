@@ -1,4 +1,6 @@
 require 'we/base'
+require 'we/global'
+require 'we/local'
 require 'we/verb/base'
 
 def we( *args, &block )

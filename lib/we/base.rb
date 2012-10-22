@@ -16,25 +16,13 @@ module We
 
     def set( settable, state )
 
-      unless settable.is_a? Array
+      we pending_debt: 'config needs tidying'
 
-        return We::config[settable] = state
+      settable.each do |key, value|
 
-      end
-
-      settable.each do |setting|
-
-        We::config[setting] = state
+        We::config[value] = state
 
       end
-
-    end
-
-    def context
-
-      @context = {} unless @context
-
-      @context
 
     end
 
@@ -60,11 +48,11 @@ module We
 
             if We::Verb::is_this? key
 
-              We::Verb::send( key, value, &block )
+              We::Verb::send( key, *args, &block )
 
             else
 
-              We::Verb::custom_call( key, value, &block )
+              We::Verb::custom_call( key, *args, &block )
               
             end
 
@@ -74,11 +62,11 @@ module We
 
           if We::Verb::is_this? arg
 
-            We::Verb::send( arg, args, &block )
+            We::Verb::send( arg, *args, &block )
 
           else 
 
-            We::Verb::custom_call( arg, nil, &block )
+            We::Verb::custom_call( arg, *args, &block )
 
           end
 
