@@ -26,7 +26,6 @@ module We
         We::global[:document][:current_depth] = 0
         We::global[:document].merge!( args )
         We::global[:document].delete :document # duplicate info
-        # We::enter_fragment( args, &block )
 
       end
 

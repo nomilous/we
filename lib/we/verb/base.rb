@@ -18,7 +18,11 @@ module We
 
       def subscribers
 
-        @subscribed = {} unless @subscribed
+        @subscribed = {
+
+          fragment: 1, link_file: 1, enable: 1, disable: 1, document: 1
+
+        } unless @subscribed
 
         @subscribers = {
 
@@ -33,6 +37,10 @@ module We
       def at( event, verb, &block )
 
         return unless event == :enter or event == :exit
+
+        #
+        # no protection from accidental multiple subscription
+        #
 
         subscribers[event][verb] = [] unless subscribers[event][verb]
 
@@ -93,48 +101,6 @@ module We
         end
 
       end
-
-      # def register( args, &block )
-
-      #   @verb_action = {} unless @verb_action
-
-      #   if args.is_a? Symbol
-
-      #     @verb_action[args] = block
-
-      #   elsif args.is_a? Hash
-
-      #     args.each_key do |key|
-
-      #       @verb_action[key] = block
-
-      #     end
-          
-      #   end
-
-      # end
-
-      # def custom_call( symbol, parameter, &block )
-
-      #   if @verb_action.nil? or @verb_action[symbol].nil?
-
-      #     unless parameter.nil?
-
-      #       We::warn "Undefined custom_call = :#{symbol}"
-
-      #       return
-
-      #     end
-
-      #     We::warn "Undefined custom_call = :#{symbol}, parameter = '#{parameter[symbol]}'"
-
-      #     return
-
-      #   end
-
-      #   @verb_action[symbol].yield( parameter, block )
-
-      # end
 
       def builtin?( symbol )
 

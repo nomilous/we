@@ -2,12 +2,6 @@ we :fragment do
 
   describe We do
 
-    it 'allows creation of verb handlers by subscription' do
-
-
-    end
-
-
     it 'can link subcomponet specs' do
 
       we enable: :linking

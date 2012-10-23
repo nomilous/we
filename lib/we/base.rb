@@ -33,52 +33,10 @@ module We
 
     end
 
-
-
-    # def enter_fragment( args, &block ); end
-    # def enter_node( args, &block ); end
-    # def exit_node( args, &block ); end
-
     def process( *args, &block )
 
-      # args.each do |arg|
-
-      #   if arg.is_a? Hash
-
-      #     arg.each do |key, value|
-
-      #       if We::Verb::is_this? key
-
-      #         We::Verb::send( key, *args, &block )
-
-      #       # else
-
-      #       #   We::Verb::custom_call( key, *args, &block )
-              
-      #       end
-
-      #     end
-
-      #   elsif arg.is_a? Symbol
-
-      #     if We::Verb::is_this? arg
-
-      #       We::Verb::send( arg, *args, &block )
-
-      #     # else 
-
-      #     #   We::Verb::custom_call( arg, *args, &block )
-
-      #     end
-
-      #   end
-
-      # end
-
-      # We::enter_node( *args, &block )
-
       We::Verb::emit( :enter, *args, &block )
-      
+
       begin
         We::global[:document][:depth] += 1
         We::global[:document][:current_depth] += 1
@@ -91,8 +49,6 @@ module We
       rescue; end
 
       We::Verb::emit( :exit, *args, &block )
-
-      # We::exit_node( *args, &block )
 
     end
 
