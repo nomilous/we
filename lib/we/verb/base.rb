@@ -4,49 +4,139 @@ module We
 
     class << self
 
-      def register( args, &block )
+      def on_enter( verb, &block )
 
-        @verb_action = {} unless @verb_action
-
-        if args.is_a? Symbol
-
-          @verb_action[args] = block
-
-        elsif args.is_a? Hash
-
-          args.each_key do |key|
-
-            @verb_action[key] = block
-
-          end
-          
-        end
+        at :enter, verb, &block
 
       end
 
-      def custom_call( symbol, parameter, &block )
+      def on_exit( verb, &block )
 
-        if @verb_action.nil? or @verb_action[symbol].nil?
+        at :exit, verb, &block
 
-          unless parameter.nil?
+      end
 
-            We::warn "Undefined custom_call = :#{symbol}"
+      def subscribers
 
-            return
+        @subscribed = {} unless @subscribed
+
+        @subscribers = {
+
+          enter: {}, exit: {} #, error: {}
+
+        } unless @subscribers
+
+        @subscribers
+
+      end
+
+      def at( event, verb, &block )
+
+        return unless event == :enter or event == :exit
+
+        subscribers[event][verb] = [] unless subscribers[event][verb]
+
+        @subscribed[verb] = 1
+
+        subscribers[event][verb] << block
+
+      end
+
+      def emit( event, args, &block )
+
+        if args.is_a? Symbol
+
+          verb = args
+
+        elsif args.is_a?( Hash )
+
+          args.each_key do |key|
+
+            #
+            # get the first key from a Hash?
+            #
+
+            verb = key
+
+            break
 
           end
 
-          We::warn "Undefined custom_call = :#{symbol}, parameter = '#{parameter[symbol]}'"
+        else
 
           return
 
         end
 
-        @verb_action[symbol].yield( parameter, block )
+        if event == :enter and builtin? verb
+
+          send verb, args, &block
+
+        end
+
+        if subscribers[event][verb].nil?
+
+          if @subscribed[verb].nil?
+
+            We::warn "Unsubscribed: #{verb}" 
+
+          end
+
+          return
+
+        end
+
+        subscribers[event][verb].each do |block|
+
+          block.yield args, block
+
+        end
 
       end
 
-      def is_this?( symbol )
+      # def register( args, &block )
+
+      #   @verb_action = {} unless @verb_action
+
+      #   if args.is_a? Symbol
+
+      #     @verb_action[args] = block
+
+      #   elsif args.is_a? Hash
+
+      #     args.each_key do |key|
+
+      #       @verb_action[key] = block
+
+      #     end
+          
+      #   end
+
+      # end
+
+      # def custom_call( symbol, parameter, &block )
+
+      #   if @verb_action.nil? or @verb_action[symbol].nil?
+
+      #     unless parameter.nil?
+
+      #       We::warn "Undefined custom_call = :#{symbol}"
+
+      #       return
+
+      #     end
+
+      #     We::warn "Undefined custom_call = :#{symbol}, parameter = '#{parameter[symbol]}'"
+
+      #     return
+
+      #   end
+
+      #   @verb_action[symbol].yield( parameter, block )
+
+      # end
+
+      def builtin?( symbol )
 
         case symbol
 
@@ -139,8 +229,8 @@ module We
           end
 
           We::local[:fragment] = spec_file
-          custom_call( :fragment, spec_file, &block )
-          We::enter_fragment( args, &block )
+          #emit( :fragment, spec_file, &block )
+          #We::enter_fragment( args, &block )
 
         end
 

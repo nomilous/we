@@ -2,6 +2,7 @@ require 'we/base'
 require 'we/global'
 require 'we/local'
 require 'we/verb/base'
+require 'we/event'
 
 def we( *args, &block )
 
@@ -18,17 +19,5 @@ end
 def to( *args, &block )
 
   block.call if block
-
-end
-
-def linking; 
-
-  :linking
-
-end
-
-def link_fragment( *args, &block )
-
-  We::link_fragment( args, &block )
 
 end

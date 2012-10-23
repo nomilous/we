@@ -2,17 +2,19 @@ we document: 'The Title', xtensible: 'A Maple Tree' do
 
   describe 'We::Verb(s)' do
 
-    it 'are registerable' do
+    context 'generate events' do
 
-      We::Verb::register( :verb ) do; end
+      it 'for subscription' do
 
-      verb_handler = We::Verb::instance_variable_get( :@verb_action )[:verb]
+        We::Verb::on_enter :greet do; end
+        We::Verb::on_exit :greet do; end
 
-      verb_handler.should be_a( Proc )
+        We::Verb::should_receive( :emit ).with( :enter, {:greet=>"you"} )
+        We::Verb::should_receive( :emit ).with( :exit, {:greet=>"you"} )
 
-      verb_handler.should_receive( :yield ).with( anything, anything )
+        we greet: 'you' do; end
 
-      we :verb do; end
+      end
 
     end
 

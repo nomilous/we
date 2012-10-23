@@ -2,9 +2,15 @@ we :fragment do
 
   describe We do
 
+    it 'allows creation of verb handlers by subscription' do
+
+
+    end
+
+
     it 'can link subcomponet specs' do
 
-      we enable: linking
+      we enable: :linking
 
       we link_file: 'we/verb/base'
 
@@ -16,7 +22,7 @@ we :fragment do
 
     it 'only links subcomponent specs when linking is enabled' do
 
-      we disable: linking
+      we disable: :linking
 
       We::instance_variable_set(:@links, {})
 
@@ -30,7 +36,7 @@ we :fragment do
 
     it 'warns when linking to a spec that is not declared as lined' do
 
-      we enable: linking
+      we enable: :linking
 
       We::should_receive( :warn ).with( 
 
@@ -63,6 +69,8 @@ we :fragment do
       end
 
       We::config[:bogus_config_key].should == :enabled
+
+      we enable: :walking
 
     end
 
