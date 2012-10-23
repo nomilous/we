@@ -6,8 +6,9 @@ module We
 
       @config = {
 
-        linking: :disabled
-
+        walking: :enabled,  # toggle entering nodes
+        linking: :disabled  # toggle following links
+        
       } unless @config
 
       @config
@@ -80,8 +81,8 @@ module We
         We::global[:document][:depth] += 1
         We::global[:document][:current_depth] += 1
       rescue; end
-
-      block.call if block
+      
+      block.call if block and We::config[:walking] == :enabled
 
       begin
         We::global[:document][:current_depth] -= 1

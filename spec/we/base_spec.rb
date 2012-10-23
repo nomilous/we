@@ -42,6 +42,30 @@ we :fragment do
 
     end
 
+    it 'walks the tree only if enabled' do
+
+      we disable: :walking
+
+      we dont_enter: 'This next block' do
+
+        we enable: :bogus_config_key
+
+      end
+
+      We::config[:bogus_config_key].should == nil
+
+      we enable: :walking
+
+      we do_enter: 'This next block' do
+
+        we enable: :bogus_config_key
+
+      end
+
+      We::config[:bogus_config_key].should == :enabled
+
+    end
+
     it 'maintains a list of linked spec edges' do
 
       pending
