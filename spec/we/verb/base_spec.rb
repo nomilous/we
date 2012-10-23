@@ -38,12 +38,12 @@ we document: 'The Title', xtensible: 'A Maple Tree' do
 
     context ':fragment' do
 
-      we :fragment do
+      we need: 'to enable user configurable fragment retreival and identification mechanisms'
+      we need: 'to nest the fragment context to allow multiple parameters of fragment scope'
 
-        we need: 'to enable user configurable fragment retreival and identification mechanisms'
-        we need: 'to nest the fragment context to allow multiple parameters of fragment scope'
+      it 'tracks the current fragment' do
 
-        it 'tracks the current fragment' do
+        we :fragment do
 
           We::local[:fragment].should == "we/verb/base"
 

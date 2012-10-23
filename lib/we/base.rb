@@ -40,8 +40,6 @@ module We
 
     def process( *args, &block )
 
-      ap args
-
       args.each do |arg|
 
         if arg.is_a? Hash
@@ -81,12 +79,7 @@ module We
       begin
         We::global[:document][:depth] += 1
         We::global[:document][:current_depth] += 1
-        ap We::global
-      rescue Exception => e; 
-
-        ap e
-
-      end
+      rescue; end
 
       block.call if block
 
@@ -108,19 +101,35 @@ module We
 
     end
 
-    def link_fragment( args, &block )
+    def link( args, &block )
+
+      args.each do |key, value|
+
+        case key
+
+        when :link_file 
+
+          return link_file( value, args, &block)
+
+        end
+
+      end
+
+    end
+
+    def link_file( file, args, &block )
 
       @links = {} if @links.nil?
 
       return unless We::config[:linking] == :enabled
 
-      base_name = ""
+      base_name = file
 
-      args.each do |arg|
+      # args.each do |arg|
 
-        base_name = "#{arg}" if arg.is_a? String
+      #   base_name = "#{arg}" if arg.is_a? String
 
-      end
+      # end
 
       unless /^\s{0,}we\s{1,}\:fragment\s{0,}do\s{0,}(;|$)/.match( 
 

@@ -34,9 +34,9 @@ describe We do
 
     we need: 'to config link mech'
 
-    We::should_receive( :link_fragment )
+    We::should_receive( :link ).with link_file: 'we/base', mode: 'PENDING' 
 
-    link_fragment 'we/base' # , :file | :uri  |  :...
+    we link_file: 'we/base', mode: 'PENDING'
 
   end
 

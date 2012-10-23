@@ -6,7 +6,7 @@ we :fragment do
 
       we enable: linking
 
-      link_fragment 'we/verb/base'
+      we link_file: 'we/verb/base'
 
       We::instance_variable_get(
 
@@ -20,7 +20,7 @@ we :fragment do
 
       We::instance_variable_set(:@links, {})
 
-      link_fragment 'we/verb/base'
+      we link_file: 'we/verb/base'
 
       We::instance_variable_get(
 
@@ -38,7 +38,7 @@ we :fragment do
 
       )
 
-      link_fragment 'we/unlinked'
+      we link_file: 'we/unlinked'
 
     end
 

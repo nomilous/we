@@ -50,7 +50,11 @@ module We
 
         case symbol
 
-        when :fragment, :enable, :disable, :document
+        when :fragment,   # entering a fragment
+             :link_file,  # call to link
+             :enable,     
+             :disable, 
+             :document    # document root
 
           return true
 
@@ -76,6 +80,19 @@ module We
 
       end
 
+      def link_file( args, &block )
+
+        # 
+        # we link_file: 'we/base', mode: 'PENDING'
+        # 
+        # - Destination may or may not be the start
+        #   of a new fragment
+        #
+
+        We::link( args, &block )
+
+      end
+
       def fragment( args, &block )
 
         #
@@ -87,8 +104,6 @@ module We
         # 
         # end
         #
-
-        ap args
 
         if args == :fragment
 
