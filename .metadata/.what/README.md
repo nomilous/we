@@ -11,7 +11,7 @@
 
 
 
-                                we |pronoun| ~ are nothing by ourselves
+                                 we |pronoun| ~ are nothing by ourselves
 
 
 
@@ -57,5 +57,5 @@
 
 
 
-                                                                                                          .
+                                                                                                             .
 </pre>

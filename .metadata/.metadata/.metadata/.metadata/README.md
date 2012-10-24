@@ -7,8 +7,6 @@
 
 
 
-
-
                                so world is a leaf so tree is a bough
 
                                      (and birds sing sweeter
@@ -59,9 +57,5 @@
 
 
 
-
-
-
-
-                                                                                                          03
+                                                                                                             .
 </pre>
