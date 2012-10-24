@@ -2,7 +2,7 @@ require 'we/base'
 require 'we/global'
 require 'we/local'
 require 'we/verb/base'
-require 'we/event'
+require 'we/event/event'
 
 def we( *args, &block )
 
