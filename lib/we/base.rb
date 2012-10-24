@@ -35,6 +35,8 @@ module We
 
     def process( *args, &block )
 
+      We::Event::edge()
+
       We::Verb::emit( :enter, *args, &block )
 
       begin
@@ -49,6 +51,8 @@ module We
       rescue; end
 
       We::Verb::emit( :exit, *args, &block )
+
+      We::Event::edge()
 
     end
 
