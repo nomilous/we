@@ -8,15 +8,16 @@
 
 
 
-                                      TYPES: BEGIN OF MINERAL
-                                             AMOUNT(5),
-                                             END OF MINERAL
+                                         TYPES: BEGIN OF MINERAL
+                                                AMOUNT(5),
+                                                END OF MINERAL
 
-                                      CALL FUNCTION 'ACCRUE_MINERAL'
-                                             EXPORTING
+                                         CALL FUNCTION 'ACCRUE'
+                                                EXPORTING
                                                   MINERAL = X
 
-                                                     - sap
+
+                                                          - sap
 
 
 
@@ -28,7 +29,8 @@
 
                                          we need: 'more minerals'
 
-                                                   - starcraft
+
+                                                       - starcraft
 
 
 
