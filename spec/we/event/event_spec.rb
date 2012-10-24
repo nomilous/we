@@ -28,4 +28,13 @@ describe We::Event do
 
   end
 
+  it 'has direction' do
+
+    We::Event::should_receive( :enter ).once
+    We::Event::should_receive( :exit ).once
+
+    we :enter_and_exit do; end
+
+  end
+
 end

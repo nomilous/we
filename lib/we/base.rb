@@ -35,7 +35,7 @@ module We
 
     def process( *args, &block )
 
-      We::Event::edge()
+      We::Event::edge( :enter )
 
       We::Verb::emit( :enter, *args, &block )
 
@@ -52,7 +52,7 @@ module We
 
       We::Verb::emit( :exit, *args, &block )
 
-      We::Event::edge()
+      We::Event::edge( :exit )
 
     end
 
