@@ -1,4 +1,9 @@
 require 'we/base'
+require 'we/event/event'
+require 'we/node/node'
+require 'we/stack/stack'
+
+
 require 'we/global'
 require 'we/local'
 require 'we/verb/base'

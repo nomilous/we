@@ -37,4 +37,16 @@ describe We::Event do
 
   end
 
+  it 'pushes' do
+
+    pending We::Node && We::Stack
+
+  end
+
+  it 'pops' do
+
+    pending We::Node && We::Stack
+
+  end
+
 end
