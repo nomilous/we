@@ -2,7 +2,7 @@ describe 'We::walk' do
 
   context 'walks the tree to:' do
 
-    it 'assemble a document' do
+    it 'assembles a document' do
 
       We::document.should be_a Hash
 

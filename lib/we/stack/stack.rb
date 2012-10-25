@@ -8,15 +8,13 @@ module We
       # We::node (the current node)
       #
 
-      @node = Node.new unless @node
-      @node
+      @node ||= Node.new
 
     end
 
     def stack
 
-      @stack = [] unless @stack
-      @stack
+      @stack ||= []
 
     end
 
@@ -32,7 +30,6 @@ module We
     def pop
 
       @node = @stack.pop
-      @node
 
     end
 

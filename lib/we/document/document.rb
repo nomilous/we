@@ -4,7 +4,7 @@ module We
 
     def document
 
-      @document || @document = {}
+      @document ||= {}
 
     end
 
