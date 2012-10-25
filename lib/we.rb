@@ -2,6 +2,8 @@ require 'we/base'
 require 'we/event/event'
 require 'we/node/node'
 require 'we/stack/stack'
+require 'we/fragment/fragment'
+require 'we/document/document'
 
 
 require 'we/global'
