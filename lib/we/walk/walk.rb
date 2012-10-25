@@ -2,11 +2,13 @@ module We
 
   class << self
 
-    def walk( *args, &block )
+    def walk( args, &block )
 
-      We::Event::edge( :enter )
+      return if config! args
 
-      We::Event::edge( :exit )
+      We::Event::edge( :enter, args )
+
+      We::Event::edge( :exit, args )
 
     end
 

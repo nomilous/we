@@ -1,4 +1,5 @@
 #require 'we/base'
+require 'we/config/config.rb'
 require 'we/walk/walk.rb'
 require 'we/event/event'
 require 'we/node/node'
