@@ -11,8 +11,14 @@ describe We::Node do
   it 'can accumulate data' do
 
     subject.store new: 'data'
-
     subject.data.should == { new: 'data' }
+
+  end
+
+  it 'has edges array' do
+
+    pending 'needing edges in the node'
+    #subject.edge.should be_a Array
 
   end
 

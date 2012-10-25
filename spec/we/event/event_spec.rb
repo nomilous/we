@@ -37,15 +37,29 @@ describe We::Event do
 
   end
 
-  it 'pushes' do
+  it 'pushes and pops' do
 
-    pending We::Node && We::Stack
+    We::should_receive( :push ).once
+    We::should_receive( :pop ).once
+
+    we :enter_and_exit do; end
 
   end
 
-  it 'pops' do
+  it 'it begins' do
 
-    pending We::Node && We::Stack
+    We::Event::should_receive( :begin ).once
+    We::Event::should_receive( :end ).once
+
+    we :first_node_entered do
+
+      We::Event::should_not_receive( :begin )
+
+      we :second_node_entered do
+
+      end
+
+    end
 
   end
 

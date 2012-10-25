@@ -22,9 +22,35 @@ module We
 
       def enter
 
+        if We::stack.size == 0
+
+          We::node
+
+          We::Event::begin
+
+        end
+
+        We::push
+
       end
 
       def exit
+
+        We::pop
+
+        if We::stack.size == 0
+
+          We::Event::end
+
+        end
+
+      end
+
+      def begin
+
+      end
+
+      def end
 
       end
 
