@@ -20,6 +20,8 @@ module We
 
     def push
 
+      We::graft @node
+
       child = Node.new
       # @node.edge << child
       @stack << @node
@@ -28,6 +30,8 @@ module We
     end
 
     def pop
+
+      We::pleach
 
       @node = @stack.pop
 

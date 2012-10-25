@@ -48,7 +48,7 @@ module We
 
       def end
 
-        ap We::node.data
+        ap We::tree
 
       end
 
