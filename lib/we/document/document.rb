@@ -10,4 +10,8 @@ module We
 
   end
 
+  class Document <  Fragment
+
+  end
+
 end

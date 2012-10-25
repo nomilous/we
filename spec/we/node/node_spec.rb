@@ -10,7 +10,7 @@ describe We::Node do
 
   it 'can accumulate data' do
 
-    subject.store new: 'data'
+    subject.inject new: 'data'
     subject.data.should == { new: 'data' }
 
   end

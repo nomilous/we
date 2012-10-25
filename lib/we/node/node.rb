@@ -12,7 +12,7 @@ module We
 
     end
 
-    def store( data )
+    def inject( data )
 
       @data.merge!( data ) do |key, old, new|
 

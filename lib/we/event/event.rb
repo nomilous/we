@@ -8,15 +8,11 @@ module We
 
     class << self
 
-      def edge( direction )
+      def edge( direction, args )
 
-        #
-        # walker entered a node (and exited** another)
-        # 
-        #        **popped out for a moment
-        #
+        We::node.inject( args ) if args.is_a? Hash
 
-        send direction
+        send direction # :enter | :exit
 
       end
 
@@ -48,13 +44,11 @@ module We
 
       def begin
 
-        puts "\n\n   --->BEGIN\n\n"
-
       end
 
       def end
 
-        puts "\n\n   --->END\n\n"
+        ap We::node.data
 
       end
 

@@ -1,4 +1,4 @@
-we document: 'The Document' do
+we document: 'A document', sans: 'byzantine incohesion' do
 
 
   

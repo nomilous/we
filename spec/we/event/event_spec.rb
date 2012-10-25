@@ -63,4 +63,24 @@ describe We::Event do
 
   end
 
+  it 'injects hash data' do
+
+    We::node.should_receive( 
+
+      :inject ).with( {:is=>"", :are=>"", :and=>"am"}
+
+    )
+
+    we is: '', are: '', and: 'am'
+
+  end
+
+  it 'only injects hash data' do
+
+    We::node.should_not_receive( :inject ).with( :are )
+
+    we :are
+
+  end
+
 end
