@@ -48,9 +48,13 @@ module We
 
       def begin
 
+        puts "\n\n   --->BEGIN\n\n"
+
       end
 
       def end
+
+        puts "\n\n   --->END\n\n"
 
       end
 

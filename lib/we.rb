@@ -1,4 +1,5 @@
-require 'we/base'
+#require 'we/base'
+require 'we/walk/walk.rb'
 require 'we/event/event'
 require 'we/node/node'
 require 'we/stack/stack'
@@ -11,20 +12,8 @@ require 'we/local'
 require 'we/verb/base'
 require 'we/event/event'
 
-def we( *args, &block )
+def we( *args, &block ) 
 
-  We::process( *args, &block )
-
-end
-
-def as( *args, &block )
-
-  block.call if block
-
-end
-
-def to( *args, &block )
-
-  block.call if block
+  We::walk( *args, &block )
 
 end

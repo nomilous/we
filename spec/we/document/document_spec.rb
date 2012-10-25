@@ -1,3 +1,6 @@
-describe We::Document do
+we document: 'The Document' do
+
+
+  
 
 end

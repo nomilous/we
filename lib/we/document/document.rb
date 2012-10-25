@@ -1,6 +1,12 @@
 module We
 
-  class Document < Fragment
+  class << self
+
+    def document
+
+      @document || @document = {}
+
+    end
 
   end
 
