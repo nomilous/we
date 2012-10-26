@@ -18,7 +18,7 @@ module We
 
         We::node( args ) # type of node from args
 
-        We::node.inject( args ) if args.is_a? Hash
+        We::node.inject( args )
 
         if We::stack.size == 0
 

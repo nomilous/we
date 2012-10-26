@@ -75,10 +75,10 @@ describe We::Event do
 
   end
 
-  it 'only injects hash data' do
+  it 'only injects symbol data' do
 
-    We::node.should_not_receive( :inject ).with( :are )
-
+    We::node.should_receive( :inject ).with( :are )
+    
     we :are
 
   end
