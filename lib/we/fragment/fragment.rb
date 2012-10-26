@@ -1,6 +1,6 @@
 module We
 
-  class Fragment < Node
+  class Fragment < Document
 
     class_eval do
 

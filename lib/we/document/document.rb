@@ -10,11 +10,19 @@ module We
 
   end
 
-  class Document <  Fragment
+  class Document < Node
 
     class_eval do
 
       We::defined[:document] = self
+
+    end
+
+    def inject( data )
+
+      super
+
+      @data[:type] = :document
 
     end
 

@@ -4,6 +4,10 @@ module We
 
     def type( args )
 
+      #
+      # returns default or predefined Node types
+      #
+
       unless args.is_a? Hash
 
         return We::Node
@@ -36,16 +40,22 @@ module We
 
     def inject( data )
 
+      @data[:type] = :node
+      @data[:node_class] = data.keys.first
+      @data[:node_tag] = data[data.keys.first]
+
       @data.merge!( data ) do |key, old, new|
 
         #
         # on overwrite: 
         # 
         #    old and new
-        #    yield into here 
+        #    yield into here
         #
 
       end
+
+      @data.delete data.keys.first
 
     end
 

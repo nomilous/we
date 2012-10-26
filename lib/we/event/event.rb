@@ -16,7 +16,7 @@ module We
 
       def enter( args )
 
-        We::node( args )
+        We::node( args ) # type of node from args
 
         We::node.inject( args ) if args.is_a? Hash
 
