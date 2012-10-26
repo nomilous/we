@@ -1,13 +1,27 @@
 describe 'We::walk' do
 
-  context 'walks the tree to:' do
+  it 'assembles a tree' do
 
-    it 'assembles a document' do
-
-      We::document.should be_a Hash
-
-    end
+    We::tree.should be_a Hash
 
   end
 
+  it 'does not enter the tree if walking is disabled' do
+
+    entered = false
+
+    we disable: :walking
+    we enter: 'the tree' do
+      entered = true
+    end
+    entered.should == false
+
+    we enable: :walking
+    we enter: 'the tree' do
+      entered = true
+    end
+    entered.should == true
+
+  end
+    
 end

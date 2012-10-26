@@ -8,6 +8,8 @@ module We
 
       We::Event::edge( :enter, args )
 
+      block.call if block and We::enabled? :walking
+
       We::Event::edge( :exit, args )
 
     end
