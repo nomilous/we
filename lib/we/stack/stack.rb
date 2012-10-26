@@ -8,7 +8,7 @@ module We
       # We::node (the current node)
       #
 
-      @node ||= type( args ).new
+      @node ||= type( args ).new  # :NEXT: not making a :fragment
 
     end
 

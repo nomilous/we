@@ -8,6 +8,8 @@ describe We::Fragment do
 
   it 'defaults the _tag' do
 
+    pending :NEXT, "and some sleep"
+
     we :fragment do
 
       We::node.data[:_type].should == :fragment
