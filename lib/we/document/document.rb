@@ -12,6 +12,12 @@ module We
 
   class Document <  Fragment
 
+    class_eval do
+
+      We::defined[:document] = self
+
+    end
+
   end
 
 end
