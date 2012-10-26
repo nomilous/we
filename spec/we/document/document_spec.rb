@@ -2,7 +2,7 @@ we document: 'A Tree', type: 'Baobab' do
 
   describe We::Document do
 
-    it 'has "A Document" as the node_tag' do
+    it 'has "A Tree" as the node_tag' do
 
       We::node.data[:_tag].should == "A Tree"
 
