@@ -2,7 +2,9 @@ module We
 
   class << self
 
-    def define
+    def defined
+
+      @defined ||= {}
 
     end
 

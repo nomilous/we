@@ -6,9 +6,15 @@ describe 'We::stack' do
 
   end
 
+  it 'creates the first node as specific type' do
+
+    We::node( document: '' ).should be_a We::Document 
+
+  end
+
   it 'pushes' do
 
-    root = We::node
+    root = We::node()
 
     We::push
 

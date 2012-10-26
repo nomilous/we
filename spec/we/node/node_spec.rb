@@ -30,9 +30,7 @@ describe We::Node do
 
   it 'can identify defined types' do
 
-    pending 'document defines'
-
-    We::type( docuemnt: 'd' ).should == We::Document
+    We::type( document: 'title' ).should == We::Document
 
   end
 

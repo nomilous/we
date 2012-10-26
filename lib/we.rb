@@ -4,10 +4,10 @@ require 'we/walk/walk'
 require 'we/tree/tree'
 require 'we/event/event'
 require 'we/node/node'
-require 'we/stack/stack'
+require 'we/define/define'
 require 'we/fragment/fragment'
 require 'we/document/document'
-
+require 'we/stack/stack'
 
 require 'we/global'
 require 'we/local'

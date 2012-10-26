@@ -10,17 +10,17 @@ module We
 
       def edge( direction, args )
 
-        We::node.inject( args ) if args.is_a? Hash
-
-        send direction # :enter | :exit
+        send direction, args # :enter | :exit
 
       end
 
-      def enter
+      def enter( args )
+
+        We::node( args )
+
+        We::node.inject( args ) if args.is_a? Hash
 
         if We::stack.size == 0
-
-          We::node
 
           We::Event::begin
 
@@ -30,7 +30,7 @@ module We
 
       end
 
-      def exit
+      def exit( args )
 
         We::pop
 

@@ -2,13 +2,13 @@ module We
 
   class << self
 
-    def node
+    def node( args = nil )
 
       #
       # We::node (the current node)
       #
 
-      @node ||= Node.new
+      @node ||= type( args ).new
 
     end
 
