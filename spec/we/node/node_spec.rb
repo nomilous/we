@@ -22,4 +22,18 @@ describe We::Node do
 
   end
 
+  it 'it defaults node type to Node' do
+
+    We::type( :undefined ).should == We::Node
+
+  end
+
+  it 'can identify defined types' do
+
+    pending 'document defines'
+
+    We::type( docuemnt: 'd' ).should == We::Document
+
+  end
+
 end

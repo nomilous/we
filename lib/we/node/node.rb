@@ -1,5 +1,27 @@
 module We
 
+  class << self
+
+    def type( args )
+
+      unless args.is_a? Hash
+
+        return We::Node
+
+      end
+
+      if defined[args.keys.first].nil?
+
+        return We::Node
+
+      end
+
+      return defined[args.keys.first]
+
+    end
+
+  end
+
   class Node
 
     attr_reader :data
