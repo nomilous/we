@@ -10,12 +10,13 @@ describe We::Node do
 
   it 'can accumulate data' do
 
-    subject.inject action: 'text'
+    subject.inject action: 'text', tag: 'may happen'
     subject.data.should == { 
 
-      type: :node,
-      node_class: :action,
-      node_tag: 'text'
+      _type: :node,
+      _class: :action,
+      _tag: 'text',
+      tag: 'may happen'
 
     }
 

@@ -22,7 +22,7 @@ module We
 
       super
 
-      @data[:type] = :document
+      @data[:_type] = :document
 
     end
 

@@ -40,9 +40,9 @@ module We
 
     def inject( data )
 
-      @data[:type] = :node
-      @data[:node_class] = data.keys.first
-      @data[:node_tag] = data[data.keys.first]
+      @data[:_type] = :node
+      @data[:_class] = data.keys.first
+      @data[:_tag] = data[data.keys.first]
 
       @data.merge!( data ) do |key, old, new|
 
