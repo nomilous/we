@@ -18,11 +18,11 @@ module We
 
     end
 
-    def push
+    def push( args )
 
       We::graft @node
 
-      child = Node.new
+      child = type( args ).new
       # @node.edge << child
       @stack << @node
       @node = child

@@ -16,7 +16,7 @@ describe 'We::stack' do
 
     root = We::node()
 
-    We::push
+    We::push( type: 'tag' )
 
     child = We::node
 
@@ -44,7 +44,7 @@ describe 'We::stack' do
 
       )
 
-      We::push
+      We::push( type: 'tag' )
 
     end
 

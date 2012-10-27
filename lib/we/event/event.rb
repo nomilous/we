@@ -26,7 +26,7 @@ module We
 
         end
 
-        We::push
+        We::push( args )
 
       end
 
