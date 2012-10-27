@@ -20,19 +20,23 @@ describe 'We::validate' do
 
   it 'warns on undefined' do
 
-    pending 'We::warning'
+    We::validate activate: 'uncertainty shields'
+    We::validate activate: 'duality field'
+    We::validate activate: 'supersymmetry sensor array'
+    We::validate activate: 'entanglement phase array'
+    We::validate activate: 'causality phase array'
 
-    We::should_receive( :warn )
+    we enable: :warning
 
-    we activate: 'uncertainty shields'
-    we activate: 'duality field'
-    we activate: 'supersymmetry sensor array'
-    we activate: 'entanglement phase array'
-    we activate: 'causality phase array'
+    We::should_receive( :warning ).with({
 
-    we rotate: 'chaos manifold', in: [3,2,1,] do
+      :undefined_node => { :rotate=>"chaos manifold", :in=>[3, 2, 1]}
 
-    end
+    })
+
+    We::validate rotate: 'chaos manifold', in: [3,2,1,]
+
+    we disable: :warning
 
   end
 
