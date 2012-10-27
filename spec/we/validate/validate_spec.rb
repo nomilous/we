@@ -47,4 +47,17 @@ describe 'We::validate' do
 
   end
 
+  it 'it defaults node type to Node' do
+
+    We::validate( :undefined ).should == We::Node
+
+  end
+
+  it 'can identify pre-defined types' do
+
+    We::validate( document: 'title' ).should == We::Document
+    We::validate( :fragment ).should == We::Fragment
+
+  end
+
 end

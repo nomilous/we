@@ -22,24 +22,4 @@ describe We::Node do
 
   end
 
-  it 'has edges array' do
-
-    pending 'needing edges in the node'
-    #subject.edge.should be_a Array
-
-  end
-
-  it 'it defaults node type to Node' do
-
-    We::type( :undefined ).should == We::Node
-
-  end
-
-  it 'can identify pre-defined types' do
-
-    We::type( document: 'title' ).should == We::Document
-    We::type( :fragment ).should == We::Fragment
-
-  end
-
 end

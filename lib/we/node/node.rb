@@ -1,31 +1,5 @@
 module We
 
-  class << self
-
-    def type( args )
-
-      #
-      # returns default or pre-defined Node types
-      #
-
-      unless args.is_a? Hash
-
-        unless args.is_a? Symbol
-
-          return We::Node
-
-        end
-
-        return defined[args] || We::Node
-
-      end
-
-      return defined[args.keys.first] || We::Node
-
-    end
-
-  end
-
   class Node
 
     attr_reader :data

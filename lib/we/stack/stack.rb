@@ -8,7 +8,7 @@ module We
       # We::node (the current node)
       #
 
-      @node ||= type( args ).new  # :NEXT: not making a :fragment
+      @node ||= We::validate( args ).new
 
     end
 
@@ -22,7 +22,7 @@ module We
 
       We::graft @node
 
-      child = type( args ).new
+      child = We::validate( args ).new
       # @node.edge << child
       @stack << @node
       @node = child
