@@ -35,9 +35,10 @@ describe We::Node do
 
   end
 
-  it 'can identify defined types' do
+  it 'can identify pre-defined types' do
 
     We::type( document: 'title' ).should == We::Document
+    We::type( :fragment ).should == We::Fragment
 
   end
 

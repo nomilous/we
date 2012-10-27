@@ -5,22 +5,22 @@ module We
     def type( args )
 
       #
-      # returns default or predefined Node types
+      # returns default or pre-defined Node types
       #
 
       unless args.is_a? Hash
 
-        return We::Node
+        unless args.is_a? Symbol
+
+          return We::Node
+
+        end
+
+        return defined[args] || We::Node
 
       end
 
-      if defined[args.keys.first].nil?
-
-        return We::Node
-
-      end
-
-      return defined[args.keys.first]
+      return defined[args.keys.first] || We::Node
 
     end
 
