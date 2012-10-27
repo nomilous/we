@@ -1,6 +1,8 @@
 #require 'we/base'
 require 'we/config/config'
 require 'we/default/default'
+require 'we/log/log'
+require 'we/validate/validate'
 require 'we/walk/walk'
 require 'we/tree/tree'
 require 'we/event/event'
