@@ -22,4 +22,10 @@ describe We::Node do
 
   end
 
+  it 'maintains reference to parent node' do
+
+    subject.parent
+    
+  end
+
 end

@@ -34,28 +34,4 @@ describe 'We::stack' do
 
   end
 
-  context 'grows the tree' do
-
-    it 'grafts' do
-
-      We::should_receive( 
-
-        :graft ).with( be_a We::Node
-
-      )
-
-      We::push( type: 'tag' )
-
-    end
-
-    it 'pleaches' do
-
-      We::should_receive( :pleach )
-
-      We::pop
-
-    end
-
-  end
-
 end

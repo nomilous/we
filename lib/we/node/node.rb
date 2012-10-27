@@ -2,7 +2,14 @@ module We
 
   class Node
 
+    class_eval do
+
+      We::defined[:node] = self
+
+    end
+
     attr_reader :data
+    attr_accessor :parent
     #attr_reader :edge
 
     def initialize

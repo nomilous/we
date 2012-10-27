@@ -16,7 +16,7 @@ module We
 
       def enter( args )
 
-        We::node( args ) # type of node from args
+        We::node( args )
 
         We::node.inject( args )
 
@@ -48,7 +48,7 @@ module We
 
       def end
 
-        ap We::tree
+        # ap We::tree
 
       end
 

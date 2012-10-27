@@ -1,7 +1,7 @@
 require 'we'
 
-We::local.clear
-#We::config.clear
+# We::local.clear
+# We::config.clear
 
-we disable: :warnings
-we enable: :walking
+# we disable: :warnings
+# we enable: :walking
