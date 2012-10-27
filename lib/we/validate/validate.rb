@@ -6,7 +6,7 @@ module We
 
       unless We::defined[We::primary args]
       
-        We::log We::warning UNKNOWN_ACTION, args
+        We::log We::warning undefined_node: args
 
         return We::Node
 
