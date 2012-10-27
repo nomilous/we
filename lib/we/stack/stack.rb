@@ -30,7 +30,7 @@ module We
 
       @branch = branch[node.data[:_tag]] = {}
       branch.merge! node.data
-      
+
       child = We::validate( args ).new
       child.parent = branch
 
@@ -45,9 +45,13 @@ module We
 
       @node = @stack.pop
 
-      unless @node.nil? or @node.parent.nil?
+      unless stack.length == 0
 
         @branch = @node.parent
+
+      else
+
+        @branch = @tree
 
       end
 

@@ -16,8 +16,6 @@ module We
       @data[:_type] = :fragment
       @data[:_tag] = We::default( :fragment, data )._tag
 
-      ap self
-
     end
 
   end

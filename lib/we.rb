@@ -12,11 +12,6 @@ require 'we/document/document'
 require 'we/fragment/fragment'
 require 'we/stack/stack'
 
-require 'we/global'
-require 'we/local'
-require 'we/verb/base'
-require 'we/event/event'
-
 def we( *args, &block ) 
 
   We::walk( *args, &block )

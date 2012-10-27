@@ -18,9 +18,13 @@ describe 'We::warning' do
 
   it 'emits warnings' do
 
+    we enable: :warning
+
     We::should_receive( :log ).with( be_a Proc )
 
     We::log We::warning warning_code: { args: '..,' }
+
+    we disable: :warning
 
   end
 

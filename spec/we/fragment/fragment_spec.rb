@@ -1,14 +1,16 @@
-we :fragment do
-  
-  describe We::Fragment do
+describe We::Fragment do
 
-    it 'declares itself as pre-defined' do
+  it 'declares itself as pre-defined' do
 
-      We::defined[:fragment].should == We::Fragment
+    We::defined[:fragment].should == We::Fragment
 
-    end
+  end
 
-    it 'defaults the _tag' do
+  it 'defaults the _tag' do
+
+    pending
+
+    we :fragment do
 
       We::node.data[:_type].should == :fragment
       We::node.data[:_tag].should == "fragment"
@@ -18,3 +20,4 @@ we :fragment do
   end
 
 end
+

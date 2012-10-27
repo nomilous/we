@@ -1,16 +1,22 @@
-we document: 'Tree' do
+describe 'We::tree' do
 
-  we node: 'Parent Node' do
+  before :each do
 
-    we node: 'Child Node 1' do; end
+    we document: 'Tree' do
 
-    we node: 'Child Node 2' do; end
+      we node: 'Parent Node' do
+
+        we node: 'Child Node 1' do 
+
+        end
+
+        we node: 'Child Node 2' do; end
+
+      end
+
+    end
 
   end
-
-end
-
-describe 'We::tree' do
 
   it 'has _tag as key (for now)' do
 
@@ -23,7 +29,10 @@ describe 'We::tree' do
 
   it 'should not have :document as the type for Node' do
 
-    We::tree['Tree']['Parent Node'][:_class].should_not == :document
+    pending "    PUSH NEEDS ATTENTION"
+
+    We::tree['Tree']['Parent Node'][
+      :_type].should == :node
 
   end
 
