@@ -24,10 +24,4 @@ describe 'We::warning' do
 
   end
 
-  it 'is' do
-
-    We::log We::warning warning_code: { args: '..,' }
-
-  end
-
 end
