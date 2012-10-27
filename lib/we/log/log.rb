@@ -8,7 +8,15 @@ module We
 
     end
 
-    def log( warner )
+    def log( messenger )
+
+      unless messenger.nil?
+      
+        return messenger.call if messenger.is_a? Proc
+
+        STDOUT << "#{messenger}\n"
+
+      end
 
     end
 

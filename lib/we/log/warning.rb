@@ -14,18 +14,20 @@ module We
 
     end
 
-    def warning( warning )
+    def warning( warns )
 
-      "warning"
+      return lambda do
+
+        STDOUT << "WARNING ~ #{warns.keys.first} ~ #{warns[warns.keys.first]}\n"
+        
+      end if We::enabled? :warning
 
     end
 
   end
 
-  class Warning
-
-    #
-
-  end
+  # class Warning  
+  #  # pending :Warners
+  # end
 
 end
