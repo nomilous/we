@@ -45,6 +45,29 @@ module We
 
     end
 
+    def action( args, &block )
+
+      #
+      # TODO: Set a run-once node action responder
+      #       that fires at the next instance of the
+      #       specified Primary
+      #
+
+      #
+      # spring |noun| ~ not only a season
+      # 
+      #    ipso.
+      # 
+      #       Mouse
+      # 
+      # 
+      #    facto.
+      # 
+      #       Cheese!
+      # 
+
+    end 
+
   end
 
   module Action

@@ -41,6 +41,14 @@ describe We::Action do
 
     end
 
+    it 'allows onetime action registration' do
+
+      pending
+
+      We::action node: lambda {}
+
+    end
+
   end
 
 end
