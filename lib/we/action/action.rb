@@ -1,5 +1,15 @@
 module We
 
+  class << self
+
+    def actions
+
+      @action ||= {}
+
+    end
+
+  end
+
   module Action
 
     class << self

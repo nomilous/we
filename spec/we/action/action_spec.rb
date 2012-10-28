@@ -16,6 +16,12 @@ describe We::Action do
 
     end
 
+    it 'stores registered actions in a Hash' do
+
+      We::actions.should be_a Hash
+
+    end
+
   end
 
 end
