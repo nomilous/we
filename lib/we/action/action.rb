@@ -31,15 +31,27 @@ module We
 
       node_type, defined = We::validate( args )
 
+      primary_key = We::primary args
+
       unless defined
 
-        We::log We::warning action_on_unknown_node: args
+        if args[:class].nil?
 
-        return
+          We::log We::warning action_on_unknown_node: args
+
+          return
+
+        end
+
+        #
+        # auto register node type as passed in with:
+        # 
+        #   class: ClassName  (in the args Hash)
+        # 
+
+        We::defined[primary_key] = args[:class]
 
       end
-
-      primary_key = We::primary args
 
       actions_for primary_key, [args[primary_key], block]
 

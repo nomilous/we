@@ -58,6 +58,16 @@ describe We::Action do
 
   end
 
+  it 'allows inline action / node registration' do
+
+    we enable: :warning
+
+    We::action! primary: lambda { "Action Proc" }, class: Object
+
+    We::defined[ :primary ].should == Object
+
+  end
+
   it 'allows onetime action registration' do
 
     pending :needing
