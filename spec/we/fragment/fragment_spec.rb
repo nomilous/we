@@ -8,16 +8,15 @@ describe We::Fragment do
 
   it 'defaults the _tag' do
 
-    pending
+    pending :linking
 
-    we :fragment do
+    We::push(:fragment)
 
-      We::node.data[:_type].should == :fragment
-      We::node.data[:_tag].should == "fragment"
+    We::node.data[:_type].should == :fragment
+    We::node.data[:_tag].should == "fragment"
 
-    end
+    We::pop
 
   end
 
 end
-

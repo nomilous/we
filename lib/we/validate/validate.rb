@@ -32,26 +32,6 @@ module We
 
       else 
 
-        #
-        # to be decided:
-        # 
-        #  we 'string' do
-        #  we 3 do 
-        # 
-        # some ideas pop to mind
-        # 
-
-        #
-        # p.s.
-        #
-        we syn: lambda {}, hapstein: lambda {} do
-
-          #
-          # syn + hapstien |greek| ~ together to clasp
-          #
-
-        end
-
         args
 
       end

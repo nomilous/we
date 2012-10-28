@@ -16,10 +16,6 @@ module We
 
       def enter( args )
 
-        We::node( args )
-
-        We::node.inject( args )
-
         if We::stack.size == 0
 
           We::Event::begin

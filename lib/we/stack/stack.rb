@@ -2,13 +2,23 @@ module We
 
   class << self
 
-    def node( args = nil )
+    def node
 
       #
       # We::node (the current node)
       #
 
-      @node ||= We::validate( args ).new
+      @node
+
+    end
+
+    def branch
+
+      #
+      # We::branch (the current branch)
+      #
+
+      @branch ||= We::tree
 
     end
 
@@ -18,26 +28,24 @@ module We
 
     end
 
-    def branch
-
-      @branch ||= We::tree
-
-    end
-
     def push( args )
 
-      # We::graft @node
+      @node = We::validate( args ).new
 
-      @branch = branch[node.data[:_tag]] = {}
-      branch.merge! node.data
+      @node.inject( args )
 
-      child = We::validate( args ).new
-      child.parent = branch
+      unless We::stack.size == 0
 
-      # @node.edge << child
+        @node.parent = branch
+        @branch = branch[@node.data[:_tag]] = {}
+
+      end
+        
+      branch.merge! @node.data
+        
       @stack << @node
 
-      @node = child
+      return @node
 
     end
 
@@ -45,17 +53,9 @@ module We
 
       @node = @stack.pop
 
-      unless stack.length == 0
+      @branch = @node.parent
 
-        @branch = @node.parent
-
-      else
-
-        @branch = @tree
-
-      end
-
-      @node
+      return @node
 
     end
 

@@ -4,13 +4,15 @@ we document: 'A Tree', type: 'Baobab' do
 
     it 'has "A Tree" as the node_tag' do
 
-      We::node.data[:_tag].should == "A Tree"
+      #raise We::tree.inspect
+
+      We::tree[:_tag].should == "A Tree"
 
     end
 
     it 'sets the node type' do
 
-      We::node.data[:_type].should == :document
+      We::tree[:_type].should == :document
 
     end
 

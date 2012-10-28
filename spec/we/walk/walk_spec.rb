@@ -8,19 +8,23 @@ describe 'We::walk' do
 
   it 'does not enter the tree if walking is disabled' do
 
-    entered = false
-
+    Proc.any_instance.should_not_receive :call
+    
     we disable: :walking
-    we enter: 'the tree' do
-      entered = true
-    end
-    entered.should == false
+    
+    We::walk document: 'DOC' do; end
 
     we enable: :walking
-    we enter: 'the tree' do
-      entered = true
-    end
-    entered.should == true
+
+  end
+
+  it 'enters the tree if walking is enabled' do
+
+    Proc.any_instance.should_receive :call
+    
+    we enable: :walking
+    
+    We::walk document: 'DOC' do; end
 
   end
     

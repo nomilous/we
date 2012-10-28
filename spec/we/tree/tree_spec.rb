@@ -1,45 +1,36 @@
 describe 'We::tree' do
 
-  before :each do
+  it 'is a hash' do
 
-    we document: 'Tree' do
-
-      we node: 'Parent Node' do
-
-        we node: 'Child Node 1' do 
-
-        end
-
-        we node: 'Child Node 2' do; end
-
-      end
-
-    end
+    We::tree.should be_a Hash
 
   end
 
-  it 'has _tag as key (for now)' do
+  it 'the root node data is on the hash root' do
 
-    We::tree['Tree'][
-      'Parent Node'][
-     'Child Node 2'][
-            :_class].should == :node
+    We::push( document: 'DOC' )
+    
+    We::tree[:_type].should == :document
 
-  end
-
-  it 'should not have :document as the type for Node' do
-
-    pending "    PUSH NEEDS ATTENTION"
-
-    We::tree['Tree']['Parent Node'][
-      :_type].should == :node
+    We::pop
 
   end
 
-  it 'might NOT have _tag as key soon' do
+  it 'stores child nodes are keyed at their :_tag' do
 
-    pending :fragment_storage_challenge
-    pending :a_few_encounters_with_actual_usage
+    We::push( document: 'DOC' )
+    We::push( node: 'NODE1' )
+
+    We::tree['NODE1'][:_type].should == :node
+
+    We::pop
+    We::pop
+
+  end
+
+  it 'child nodes are not keyed at their :_tag' do
+
+    pending :decision
 
   end
 

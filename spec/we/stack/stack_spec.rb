@@ -6,31 +6,23 @@ describe 'We::stack' do
 
   end
 
-  it 'creates the first node as specific type' do
+  it 'push creates and returns the new child node' do
 
-    We::node( document: '' ).should be_a We::Document 
-
-  end
-
-  it 'pushes' do
-
-    root = We::node()
-
-    We::push( type: 'tag' )
-
-    child = We::node
-
-    We::stack[0].should == root
-
-    #root.edge[0].should == child
+    We::push( document: 'title' ).should be_a We::Document
+    We::node.should be_a We::Document
+    We::pop
 
   end
 
-  it 'pops' do
+  it 'keeps a stack' do
 
-    node = We::pop
-
-    node.should be_a We::Node
+    We::push( document: 'DOC' )
+    We::push( node: 'NODE' )
+    We::stack[0].should be_a We::Document
+    We::stack[1].should be_a We::Node
+    We::stack[1].data[:_tag].should == "NODE"
+    We::pop
+    We::pop
 
   end
 
