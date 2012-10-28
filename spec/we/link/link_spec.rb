@@ -21,7 +21,13 @@ describe 'We::link' do
 
   it 'links' do
 
-    We::link
+    We::Link.any_instance.should_receive( :enter )
+
+    we enable: :linking
+
+    We::Link.new.inject( nil )
+
+    we disable: :linking
 
   end
 
