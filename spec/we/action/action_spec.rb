@@ -1,53 +1,53 @@
 describe We::Action do
 
-  context 'heads and tails the walk' do
+  it 'heads and tails the walk' do
 
-    it 'and provides the current node' do
 
-      We::Action::should_receive( :edge ).with(
+    We::Action::should_receive( :edge ).with(
 
-        :enter, anything, be_a( We::Node ) )
+      :enter, anything, anything )
 
-      We::Action::should_receive( :edge ).with(
-        
-        :exit, anything, be_a( We::Node ) )
+    We::Action::should_receive( :edge ).with(
+      
+      :exit, anything, anything )
 
-      We::walk nil
+    We::should_receive( :push )
+    We::should_receive( :pop )
 
-    end
+    We::walk nil
 
-    it 'stores registered action handlers in a Hash' do
+  end
 
-      We::actions.should be_a Hash
+  it 'stores registered action handlers in a Hash' do
 
-    end
+    We::actions.should be_a Hash
 
-    it 'allows action handler registration' do
+  end
 
-      We::action! node: Object
-      We::actions_for( :node )[0].should == Object
+  it 'allows action handler registration' do
 
-    end
+    We::action! node: Object
+    We::actions_for( :node )[0].should == Object
 
-    it 'allows multiple handlers per node key' do
+  end
 
-      We::action! node: Module
-      We::action! node: Class
-      We::action! node: lambda {}
+  it 'allows multiple handlers per node key' do
 
-      We::actions_for( 
+    We::action! node: Module
+    We::action! node: Class
+    We::action! node: lambda {}
 
-        :node ).last.should be_a Proc
+    We::actions_for( 
 
-    end
+      :node ).last.should be_a Proc
 
-    it 'allows onetime action registration' do
+  end
 
-      pending
+  it 'allows onetime action registration' do
 
-      We::action node: lambda {}
+    pending
 
-    end
+    We::action node: lambda {}
 
   end
 

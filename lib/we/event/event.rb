@@ -26,8 +26,6 @@ module We
 
         We::push( args )
 
-
-
       end
 
       def exit( args )
