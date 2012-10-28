@@ -98,7 +98,17 @@ module We
 
         We::actions_for( primary_key ).each do |action|
 
-          action.call if action.is_a? Proc 
+          unless action[0].nil?
+            
+            action[0].call if action[0].is_a? Proc 
+
+          end
+
+          unless action[1].nil?
+
+            action[1].call if action[1].is_a? Proc 
+
+          end
 
         end
 

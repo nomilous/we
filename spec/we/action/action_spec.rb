@@ -62,7 +62,8 @@ describe We::Action do
 
     we enable: :warning
 
-    We::action! new_node_type: lambda { "Action Proc" }, node_class: Object
+    We::action! new_node_type: lambda { "Action Proc" }, 
+                   node_class: Object do; end
 
     We::defined[ :new_node_type ].should == Object
 
@@ -74,6 +75,15 @@ describe We::Action do
     #    end
     #
     # 
+
+  end
+
+  it 'calls the action and the associated block' do
+
+    We::actions_for( :new_node_type ).last[0].should_receive( :call )
+    We::actions_for( :new_node_type ).last[1].should_receive( :call )
+
+    We::Action::edge( :exit, { new_node_type: 'tag' }, nil, nil )
 
   end
 
