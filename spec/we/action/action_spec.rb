@@ -26,26 +26,26 @@ describe We::Action do
 
   it 'allows action handler registration' do
 
-    We::action! node: Object
-    We::actions_for( :node )[0].should == [Object, nil]
+    We::action! node_key: Object
+    We::actions_for( :node_key )[0].should == [Object, nil]
 
   end
 
   it 'allows multiple handlers per node key' do
 
-    We::action! node: Module
-    We::action! node: Class
-    We::action! node: lambda {}
+    We::action! node_key: Module
+    We::action! node_key: Class
+    We::action! node_key: lambda {}
 
     We::actions_for( 
 
-      :node ).last[0].should be_a Proc
+      :node_key ).last[0].should be_a Proc
 
   end
 
   it 'keeps reference to the block passed at action registration' do
 
-    We::action! node: lambda {} do
+    We::action! node_key: lambda {} do
 
       #
       # the Proc body 
@@ -53,8 +53,8 @@ describe We::Action do
 
     end
 
-    We::actions_for( :node ).last[0].should be_a Proc  # the lambda
-    We::actions_for( :node ).last[1].should be_a Proc  # the block
+    We::actions_for( :node_key ).last[0].should be_a Proc  # the lambda
+    We::actions_for( :node_key ).last[1].should be_a Proc  # the block
 
   end
 
@@ -62,9 +62,9 @@ describe We::Action do
 
     we enable: :warning
 
-    We::action! primary: lambda { "Action Proc" }, class: Object
+    We::action! node_key: lambda { "Action Proc" }, node: Object
 
-    We::defined[ :primary ].should == Object
+    We::defined[ :node_key ].should == Object
 
   end
 
@@ -72,7 +72,7 @@ describe We::Action do
 
     pending :needing
 
-    We::action node: lambda {} do; end
+    We::action node_key: lambda {} do; end
 
   end
 
