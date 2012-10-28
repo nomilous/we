@@ -35,7 +35,7 @@ module We
 
       unless defined
 
-        if args[:node_key].nil?
+        if args[:node_class].nil?
 
           We::log We::warning action_on_unknown_node: args
 
@@ -49,7 +49,7 @@ module We
         #   class: ClassName  (in the args Hash)
         # 
 
-        We::defined[primary_key] = args[:node_key]
+        We::defined[primary_key] = args[:node_class]
 
       end
 
