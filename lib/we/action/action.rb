@@ -8,6 +8,10 @@ module We
 
     end
 
+    def action!( args, &block )
+
+    end
+
   end
 
   module Action

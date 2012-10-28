@@ -16,11 +16,19 @@ describe We::Action do
 
     end
 
-    it 'stores registered actions in a Hash' do
+    it 'stores registered action handlers in a Hash' do
 
       We::actions.should be_a Hash
 
     end
+
+    it 'allows action handler registration' do
+
+      We::action! node: Object
+
+    end
+
+
 
   end
 
