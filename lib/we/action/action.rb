@@ -4,11 +4,25 @@ module We
 
     def actions
 
-      @action ||= {}
+      @actions ||= {}
 
     end
 
     def action!( args, &block )
+
+      node_type, defined = validate( args )
+
+      unless defined
+
+        log warning action_on_unknown_node: args
+
+        return
+
+      end
+
+      #
+      # register action
+      #
 
     end
 

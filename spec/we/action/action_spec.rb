@@ -23,12 +23,21 @@ describe We::Action do
     end
 
     it 'allows action handler registration' do
-
-      We::action! node: Object
+      
+      We::action! nodee: Object
 
     end
 
+    it 'allows multiple handlers per node key' do
 
+      pending
+
+      # We::action! node: Class
+      # We::action! node: Module
+
+      #We::actions[node:].each.should_yield( Class )
+
+    end
 
   end
 
