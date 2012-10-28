@@ -12,6 +12,8 @@ module We
 
         send direction, args # :enter | :exit
 
+        We::Action::edge( direction, args, We::node )
+
       end
 
       def enter( args )
@@ -23,6 +25,8 @@ module We
         end
 
         We::push( args )
+
+
 
       end
 
