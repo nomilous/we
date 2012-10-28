@@ -23,19 +23,21 @@ describe We::Action do
     end
 
     it 'allows action handler registration' do
-      
-      We::action! nodee: Object
+
+      We::action! node: Object
+      We::actions_for( :node )[0].should == Object
 
     end
 
     it 'allows multiple handlers per node key' do
 
-      pending
+      We::action! node: Module
+      We::action! node: Class
+      We::action! node: lambda {}
 
-      # We::action! node: Class
-      # We::action! node: Module
+      We::actions_for( 
 
-      #We::actions[node:].each.should_yield( Class )
+        :node ).last.should be_a Proc
 
     end
 
