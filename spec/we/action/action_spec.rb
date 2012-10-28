@@ -27,7 +27,7 @@ describe We::Action do
   it 'allows action handler registration' do
 
     We::action! node: Object
-    We::actions_for( :node )[0].should == Object
+    We::actions_for( :node )[0].should == [Object, nil]
 
   end
 
@@ -39,15 +39,30 @@ describe We::Action do
 
     We::actions_for( 
 
-      :node ).last.should be_a Proc
+      :node ).last[0].should be_a Proc
+
+  end
+
+  it 'keeps reference to the block passed at action registration' do
+
+    We::action! node: lambda {} do
+
+      #
+      # the Proc body 
+      #
+
+    end
+
+    We::actions_for( :node ).last[0].should be_a Proc  # the lambda
+    We::actions_for( :node ).last[1].should be_a Proc  # the block
 
   end
 
   it 'allows onetime action registration' do
 
-    pending
+    pending :needing
 
-    We::action node: lambda {}
+    We::action node: lambda {} do; end
 
   end
 

@@ -41,7 +41,7 @@ module We
 
       primary_key = We::primary args
 
-      actions_for primary_key, args[primary_key]
+      actions_for primary_key, [args[primary_key], block]
 
     end
 
@@ -77,6 +77,18 @@ module We
       def edge( direction, args, node, tree = nil )
 
         #
+        # only tail recursion for now
+        #
+
+        return unless direction == :exit
+
+        primary_key = We::primary args
+
+        We::actions_for( primary_key ).each do |action|
+
+          ap action
+
+        end
 
       end
 
