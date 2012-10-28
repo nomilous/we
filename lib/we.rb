@@ -1,23 +1,19 @@
-require 'we/base'
-require 'we/global'
-require 'we/local'
-require 'we/verb/base'
-require 'we/event'
+#require 'we/base'
+require 'we/config/config'
+require 'we/default/default'
+require 'we/log/log'
+require 'we/validate/validate'
+require 'we/walk/walk'
+require 'we/tree/tree'
+require 'we/event/event'
+require 'we/define/define'
+require 'we/node/node'
+require 'we/document/document'
+require 'we/fragment/fragment'
+require 'we/stack/stack'
 
-def we( *args, &block )
+def we( *args, &block ) 
 
-  We::process( *args, &block )
-
-end
-
-def as( *args, &block )
-
-  block.call if block
-
-end
-
-def to( *args, &block )
-
-  block.call if block
+  We::walk( *args, &block )
 
 end
