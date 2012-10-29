@@ -40,23 +40,23 @@ describe 'We::validate' do
 
   end
 
-  it 'returns the Node type' do
+  it 'returns the Node type and validation truthyness ' do
 
-    type = We::validate document: 'Title'
+    type, valid = We::validate document: 'Title'
     type.should == We::Document
 
   end
 
   it 'it defaults node type to Node' do
 
-    We::validate( :undefined ).should == We::Node
+    We::validate( :undefined ).should == [We::Node, false]
 
   end
 
   it 'can identify pre-defined types' do
 
-    We::validate( document: 'title' ).should == We::Document
-    We::validate( :fragment ).should == We::Fragment
+    We::validate( document: 'title' ).should == [We::Document, true]
+    We::validate( :fragment ).should == [We::Fragment, true]
 
   end
 

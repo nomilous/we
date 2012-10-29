@@ -30,7 +30,7 @@ module We
 
     def push( args )
 
-      @node = We::validate( args ).new
+      @node = We::validate( args )[0].new
 
       @node.inject( args )
 

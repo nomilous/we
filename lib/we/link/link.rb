@@ -21,7 +21,7 @@ module We
         We::enabled? :walking and 
         We::enabled? :linking
 
-      )
+      ) 
 
     end
 

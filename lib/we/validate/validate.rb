@@ -8,11 +8,11 @@ module We
       
         We::log We::warning undefined_node: args
 
-        return We::Node
+        return We::Node, false
 
       end
 
-      return We::defined[We::primary args]
+      return We::defined[We::primary args], true
 
     end
 
